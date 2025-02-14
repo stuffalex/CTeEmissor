@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CTeEmissor.Dominio.Models;
+﻿using CTeEmissor.Dominio.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace CTeEmissor.Data
 {
@@ -9,7 +9,7 @@ namespace CTeEmissor.Data
         public DbSet<Carga> Carga { get; set; }
         public DbSet<Compra> Compra { get; set; }
         public DbSet<CTeNota> Cte { get; set; }
-
+        public DbSet<Aliquota> Aliquota { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

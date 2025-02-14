@@ -1,29 +1,110 @@
-﻿{
-    "Paraiba": 20,
-    "Parana": 19.5,
-    "Pernambuco": 20.5,
-    "Piaui": 22.5,
-    "Rio Grande do Norte": 20,
-    "Distrito Federal": 20,
-    "Espirito Santo": 17,
-    "Goias": 19,
-    "Rio de Janeiro": 20,
-    "Rio Grande do Sul": 17,
-    "Amazonas": 20,
-    "Amapa": 18,
-    "Bahia": 20.5,
-    "Ceara": 20,
-    "Sergipe": 19,
-    "Tocantins": 20,
-    "Acre": 19,
-    "Alagoas": 19,
-    "Rondonia": 19.5,
-    "Roraima": 20,
-    "Santa Catarina": 17,
-    "Sao Paulo": 18,
-    "Maranhao": 23,
-    "Mato Grosso": 17,
-    "Mato Grosso do Sul": 17,
-    "Minas Gerais": 18,
-    "Para": 19
-}
+﻿[
+    {
+        "Estado": "PB",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "PR",
+        "Porcentagem": 19.5
+    },
+    {
+        "Estado": "PE",
+        "Porcentagem": 20.5
+    },
+    {
+        "Estado": "PI",
+        "Porcentagem": 22.5
+    },
+    {
+        "Estado": "RN",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "DF",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "ES",
+        "Porcentagem": 17
+    },
+    {
+        "Estado": "GO",
+        "Porcentagem": 19
+    },
+    {
+        "Estado": "RJ",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "RS",
+        "Porcentagem": 17
+    },
+    {
+        "Estado": "AM",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "AP",
+        "Porcentagem": 18
+    },
+    {
+        "Estado": "BA",
+        "Porcentagem": 20.5
+    },
+    {
+        "Estado": "CE",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "SE",
+        "Porcentagem": 19
+    },
+    {
+        "Estado": "TO",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "AC",
+        "Porcentagem": 19
+    },
+    {
+        "Estado": "AL",
+        "Porcentagem": 19
+    },
+    {
+        "Estado": "RO",
+        "Porcentagem": 19.5
+    },
+    {
+        "Estado": "RR",
+        "Porcentagem": 20
+    },
+    {
+        "Estado": "SC",
+        "Porcentagem": 17
+    },
+    {
+        "Estado": "SP",
+        "Porcentagem": 18
+    },
+    {
+        "Estado": "MA",
+        "Porcentagem": 23
+    },
+    {
+        "Estado": "MT",
+        "Porcentagem": 17
+    },
+    {
+        "Estado": "MS",
+        "Porcentagem": 17
+    },
+    {
+        "Estado": "MG",
+        "Porcentagem": 18
+    },
+    {
+        "Estado": "PA",
+        "Porcentagem": 19
+    }
+]

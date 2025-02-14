@@ -1,11 +1,17 @@
-﻿namespace CTeEmissor.Dominio.Models;
+﻿using CTeEmissor.Dominio.Base;
 
-public class Aliquota
+namespace CTeEmissor.Dominio.Model;
+
+public class Aliquota : EntidadeBase<Aliquota>
 {
     public Aliquota(string estado, decimal porcentagem)
     {
         Estado = estado;
         Porcentagem = porcentagem;
+    }
+    public Aliquota()
+    {
+        
     }
     public string Estado { get; private set; }
     public decimal Porcentagem { get; private set; }

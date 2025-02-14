@@ -7,20 +7,40 @@ namespace CTeEmissor.Routes
     {
         public static void CteRoutes(this WebApplication app)
         {
-           
-            var route = app.MapGroup("emissorcte");
+
+            var route = app.MapGroup("notaCte");
 
             route.MapGet("", (AppDbContext context) =>
             {
-                var ctes = context.Cte.ToListAsync();
+                var ctes = context.Cte.
+                Include(cte => cte.Compra)
+                    .ThenInclude(compra => compra.Viagem)
+                        .ThenInclude(viagem => viagem.Aliquota)
+                .Include(cte => cte.Compra)
+                    .ThenInclude(compra => compra.Carga)
+                .ToListAsync();
+
+                if (ctes == null)
+                    return Results.NotFound();
+
                 return Results.Ok(ctes);
             });
 
-            //route.MapGet("", (CTeDto req, CteContext context) => {
-            //});
-            //var viagem = new ViagemModel("origem", "destino", 125);
-            //var carga = new CargaModel(3, 10, 2);
-            //route.MapGet("", () => new CTeModel(carga, viagem));
+            route.MapGet("{id:guid}", (Guid id, AppDbContext context) =>
+            {
+                var ctes = context.Cte.
+                  Include(cte => cte.Compra)
+                      .ThenInclude(compra => compra.Viagem)
+                          .ThenInclude(viagem => viagem.Aliquota)
+                  .Include(cte => cte.Compra)
+                      .ThenInclude(compra => compra.Carga)
+                        .FirstOrDefaultAsync(x => x.CompraId == id);
+
+                if (ctes == null)
+                    return Results.NotFound();
+
+                return Results.Ok(ctes);
+            });
         }
     }
 }

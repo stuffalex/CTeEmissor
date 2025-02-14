@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTeEmissor", "CTeEmissor.csproj", "{62B43746-3FD4-4351-8913-FABF165D70EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTeEmissor.Testes", "CTeEmissor.Testes\CTeEmissor.Testes.csproj", "{E2C7FAA9-9FC5-4F90-832A-A39B689F7551}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{62B43746-3FD4-4351-8913-FABF165D70EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B43746-3FD4-4351-8913-FABF165D70EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B43746-3FD4-4351-8913-FABF165D70EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C7FAA9-9FC5-4F90-832A-A39B689F7551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C7FAA9-9FC5-4F90-832A-A39B689F7551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C7FAA9-9FC5-4F90-832A-A39B689F7551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C7FAA9-9FC5-4F90-832A-A39B689F7551}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

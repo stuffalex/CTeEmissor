@@ -8,6 +8,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="CteEmissor.Testes\**" />
+	  <Content Remove="CteEmissor.Testes\**" />
+	  <EmbeddedResource Remove="CteEmissor.Testes\**" />
+	  <None Remove="CteEmissor.Testes\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
@@ -17,6 +24,12 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.2" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.2.0" />
 		<PackageReference Include="ViaCep" Version="4.1.511" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="Data\aliquotas.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>

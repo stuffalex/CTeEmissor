@@ -1,22 +1,22 @@
 ﻿using CTeEmissor.Dominio.Interfaces;
-using CTeEmissor.Dominio.Models;
+using CTeEmissor.Dominio.Model.Dto;
+using Newtonsoft.Json;
 
-namespace CTeEmissor.Dominio.Services
+namespace CTeEmissor.Dominio.Services;
+
+public class AliquotaService : IAliquotaService
 {
-    public class AliquotaService : IAliquotaService
+
+    private readonly List<AliquotaDto> _aliquotas;
+
+    public AliquotaService(string caminhoJson)
     {
+        var aliquotasJson = File.ReadAllText(caminhoJson);
+        _aliquotas = JsonConvert.DeserializeObject<List<AliquotaDto>>(aliquotasJson);
+    }
 
-        private readonly List<Aliquota> _aliquotas;
-
-        public AliquotaService(IConfiguration configuration)
-        {
-            var aliquotasJson = configuration.GetSection("Aliquotas").Get<List<Aliquota>>();
-            _aliquotas = aliquotasJson ?? new List<Aliquota>();
-        }
-
-        public decimal? ObterAliquota(string estado)
-        {
-            return _aliquotas.FirstOrDefault(a => a.Estado.Equals(estado, StringComparison.OrdinalIgnoreCase))?.Porcentagem;
-        }
+    public AliquotaDto? ObterAliquota(string estado)
+    {
+        return _aliquotas.FirstOrDefault(a => a.Estado.Equals(estado, StringComparison.OrdinalIgnoreCase));
     }
 }

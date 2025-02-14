@@ -1,7 +1,9 @@
-﻿namespace CTeEmissor.Dominio.Interfaces
+﻿using CTeEmissor.Dominio.Model.Dto;
+
+namespace CTeEmissor.Dominio.Interfaces
 {
     public interface IAliquotaService
     {
-        public decimal? ObterAliquota(string estado);
+        public AliquotaDto? ObterAliquota(string estado);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CTeEmissor.Dominio.Base
+﻿namespace CTeEmissor.Base
 {
     public abstract class EntidadeBase<T> where T : EntidadeBase<T>
     {

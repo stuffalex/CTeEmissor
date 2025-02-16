@@ -1,4 +1,4 @@
-﻿namespace CTeEmissor.Dominio.Base;
+﻿namespace CTeEmissor.Base;
 
 public class ValidacaoDeDominio : Exception
 {

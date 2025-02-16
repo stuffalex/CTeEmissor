@@ -7,18 +7,15 @@ namespace CTeEmissor.Routes
     {
         public static void CteRoutes(this WebApplication app)
         {
-
-            var route = app.MapGroup("notaCte");
-
-            route.MapGet("", (AppDbContext context) =>
+            app.MapGet("notasCte", (AppDbContext context) =>
             {
                 var ctes = context.Cte.
-                Include(cte => cte.Compra)
-                    .ThenInclude(compra => compra.Viagem)
-                        .ThenInclude(viagem => viagem.Aliquota)
-                .Include(cte => cte.Compra)
-                    .ThenInclude(compra => compra.Carga)
-                .ToListAsync();
+                    Include(cte => cte.Compra)
+                        .ThenInclude(compra => compra.Viagem)
+                            .ThenInclude(viagem => viagem.Aliquota)
+                    .Include(cte => cte.Compra)
+                        .ThenInclude(compra => compra.Carga)
+                    .ToListAsync();
 
                 if (ctes == null)
                     return Results.NotFound();
@@ -26,7 +23,7 @@ namespace CTeEmissor.Routes
                 return Results.Ok(ctes);
             });
 
-            route.MapGet("{id:guid}", (Guid id, AppDbContext context) =>
+            app.MapGet("notaCte/{id:guid}", (Guid id, AppDbContext context) =>
             {
                 var ctes = context.Cte.
                   Include(cte => cte.Compra)

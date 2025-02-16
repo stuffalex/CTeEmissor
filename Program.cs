@@ -1,6 +1,7 @@
 using CTeEmissor.Data;
-using CTeEmissor.Dominio.Interfaces;
 using CTeEmissor.Dominio.Services;
+using CTeEmissor.Dominio.Services.Interfaces;
+using CTeEmissor.Repositorio;
 using CTeEmissor.Routes;
 using ViaCep;
 
@@ -10,8 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<AppDbContext>(); 
-builder.Services.AddSingleton<IAliquotaService>(provider =>
-        new AliquotaService("./Data/aliquotas.json"));
+builder.Services.AddSingleton<IAliquotaRepositorio>(provider =>
+        new AliquotaRepositorio());
+builder.Services.AddScoped<ICompraService, CompraService>();
 builder.Services.AddScoped<ICalculaFreteService, CalculaFreteService>();
 builder.Services.AddScoped<ICalculaIcmsService, CalculaIcmsService>();
 builder.Services.AddHttpClient<IViaCepClient, ViaCepClient>(client => { client.BaseAddress = new Uri("https://viacep.com.br/"); });

@@ -1,5 +1,4 @@
-﻿using CTeEmissor.Dominio.Base;
-using CTeEmissor.Dominio.Model;
+﻿using CTeEmissor.Base;
 
 namespace CTeEmissor.Dominio.Model;
 

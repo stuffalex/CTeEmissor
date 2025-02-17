@@ -9,6 +9,7 @@ public class Compra : EntidadeBase<Compra>
     public Viagem Viagem { get; private set; }
     public decimal ValorDoFrete { get; private set; }
     public decimal ValorDoIcms  { get; private set; }
+    public CTeNota CTeNota { get; private set; }    
 
     public Compra(string nomeComprador, Carga carga, Viagem viagem, decimal valorDoFrete, decimal valorDoIcms)
     {
@@ -19,4 +20,10 @@ public class Compra : EntidadeBase<Compra>
         ValorDoIcms = valorDoIcms;
     }
     private Compra() { }
+    
+    public void AdicionarCteNota(CTeNota cteNota)
+    {
+        ValidacaoDeDominio.Quando(cteNota == null, "Nota não deve estar vazia. Confira se geração da nota ocorreu.");
+        CTeNota = cteNota;
+    }
 }

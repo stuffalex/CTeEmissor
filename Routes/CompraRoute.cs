@@ -26,6 +26,7 @@ public static class CompraRoute
 
                 Compra compra = compraService.Gerar(compraDto, estadoOrigem);
                 var cte = new CTeNota(compra);
+                compra.AdicionarCteNota(cte);
 
                 await context.AddAsync(compra);
                 await context.AddAsync(cte);
@@ -39,7 +40,8 @@ public static class CompraRoute
                 var compras = context.Compra
                 .Include(compra => compra.Viagem)
                     .ThenInclude(viagem => viagem.Aliquota)
-                .Include(cte => cte.Carga)
+                .Include(compra => compra.Carga)
+                .Include(compra=> compra.CTeNota)
                     .ToListAsync();
 
                 if (compras == null)
@@ -54,13 +56,26 @@ public static class CompraRoute
                 var compra = await context.Compra
                 .Include(compra => compra.Viagem)
                     .ThenInclude(viagem => viagem.Aliquota)
-                .Include(cte => cte.Carga)
+                .Include(compra => compra.Carga)
+                .Include(compra => compra.CTeNota)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (compra == null)
                     return Results.NotFound();
 
                 return Results.Ok(compra);
+            });
+
+        app.MapDelete("compra/delete/{id:guid}",
+            async (Guid id, AppDbContext context) =>
+            {
+                if (await context.Compra.FindAsync(id) is Compra compra)
+                {
+                    context.Compra.Remove(compra);
+                    await context.SaveChangesAsync();
+                    return Results.Ok(compra);
+                }
+                return Results.NotFound();
             });
     }
 }

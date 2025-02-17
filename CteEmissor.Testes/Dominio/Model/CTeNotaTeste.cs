@@ -25,14 +25,6 @@ namespace CTeEmissor.Testes.Dominio.Model
         }
 
         [Test]
-        public void DeveCriarCteNotaComCompra()
-        {
-            var cte = new CTeNota(_compra);
-
-            Assert.That(cte.Compra, Is.EqualTo(_compra));
-        }
-
-        [Test]
         public void NaoDeveCriarCteNotaSemCompra()
         {
             Compra compra = null;

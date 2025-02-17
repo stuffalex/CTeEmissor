@@ -9,7 +9,7 @@ namespace CTeEmissor.Routes
         {
             app.MapGet("notasCte", (AppDbContext context) =>
             {
-                var ctes = context.Cte.
+                var ctes = context.Cte
                     Include(cte => cte.Compra)
                         .ThenInclude(compra => compra.Viagem)
                             .ThenInclude(viagem => viagem.Aliquota)
@@ -23,14 +23,9 @@ namespace CTeEmissor.Routes
                 return Results.Ok(ctes);
             });
 
-            app.MapGet("notaCte/{id:guid}", (Guid id, AppDbContext context) =>
+            app.MapGet("notaCte/{compraId:guid}", (Guid id, AppDbContext context) =>
             {
-                var ctes = context.Cte.
-                  Include(cte => cte.Compra)
-                      .ThenInclude(compra => compra.Viagem)
-                          .ThenInclude(viagem => viagem.Aliquota)
-                  .Include(cte => cte.Compra)
-                      .ThenInclude(compra => compra.Carga)
+                var ctes = context.Cte
                         .FirstOrDefaultAsync(x => x.CompraId == id);
 
                 if (ctes == null)

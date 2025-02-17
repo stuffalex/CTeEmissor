@@ -32,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.CteRoutes();
 app.CompraRoutes();
+app.CalculadoraRoutes();
 
 app.UseHttpsRedirection();
 

@@ -1,18 +1,23 @@
 - CteEmissor, programa de inicializacao
-- REGRA DE QUAL CEP AINDA NAO CLARA PRA MIM
 
 API:
-- CTe - nota fiscal de transportaÁ„o
+- CTe - nota fiscal de transporta√ß√£o
 	- Dados da CARGA
-	- Dados da VIAGEM (ou poderia ser operaÁ„o, dependendo do contexto(?))
+	- Dados da VIAGEM (ou poderia ser opera√ß√£o, dependendo do contexto(?))
+- endpoints:
+  - /notasCte (traz todas as notas no banco);
+  - /notaCte/{id} - obt√©m notaCte com o idDaCompra, aqui a nota ta salva com os dados calculados j√°.
 -Compra
-	- … o objeto utilizado para gerar a nota CTe. 
-	- Conhece os dados da Carga, pois È o produto que ir· ser carregado pela empresa, 
+	- √â o objeto utilizado para gerar a nota CTe. 
+	- Conhece os dados da Carga, pois √© o produto que ir√° ser carregado pela empresa, 
 	- e da Viagem, pois conhece os enderecos de origem da entrega e o endereco final do recebedor.
-	- 
-- Para gerar informaÁıes de nota È necessario utilizar o endpoint de POST da Compra = /compra
-	- E necessario os seguintes dados, nome do comprador para vincular uma compra e consequentemente a compra estar· vinculada na nota CTe.
-		- o corpo padr„o para o envio de dados para criaÁ„o de uma nota È JSON
+ - endpoints:
+  - /compras (traz todas as compras no banco);
+  - /compra/{id} - obt√©m compra com o idDaCompra, aqui todas as informa√ß√µes, inclusive calculadas est√£o salvas no banco. Para obter os dados da NotaCTe deve bater na rota da CTeNota;
+  - 
+- Para gerar informa√ß√µes de nota √© necessario utilizar o endpoint de POST da Compra = /compra
+	- E necessario os seguintes dados, nome do comprador para vincular uma compra e consequentemente a compra estar√° vinculada na nota CTe.
+		- o corpo padr√£o para o envio de dados para cria√ß√£o de uma nota √© JSON
 	- {
 	  "nomeComprador": "string",
 	  "quantidadeDoProduto": 0,
